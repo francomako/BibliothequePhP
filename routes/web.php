@@ -22,7 +22,7 @@ Route::get('/livres', [BookController::class, 'index'])->name('books.index');
 
 // Section Ajout de livre
 Route::get('/livre/ajouter', [BookController::class, 'create'])->name('books.create');
-Route::post('/livre/ajouter', [BookController::class, 'store'])->name('books.store');
+Route::post('/livre', [BookController::class, 'store'])->name('books.store');
 
 //modifier un livre
 Route::get('/livre/{id}/modifier', [BookController::class, 'edit'])->name('books.edit');

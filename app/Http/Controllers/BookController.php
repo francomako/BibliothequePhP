@@ -47,26 +47,27 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        // Validation des données du formulaire
         $request->validate([
             'title' => 'required|string|max:255',
             'author' => 'required|string|max:255',
-            'category' => 'required|string|max:255',
-            'publication_year' => 'required|integer',
-            'summary' => 'nullable|string',
-            'price' => 'required|numeric',
+            'year' => 'required|digits:4',
+            'summary' => 'required|string',
+            'price' => 'required|numeric|min:0',
         ]);
 
-        // Crée un nouveau livre avec les données validées
-        Book::create($request->all());
+        $book = Book::create([
+            'title' => $request->title,
+            'author' => $request->author,
+            'year' => $request->year,
+            'summary' => $request->summary,
+            'price' => $request->price,
+        ]);
 
-        // Redirige vers la page d'accueil avec un message de succès
-        return redirect()->route('home')->with('success', 'Livre ajouté avec succès!');
+        return redirect()->route('books.show', $book->id)
+                        ->with('success', '📘 Livre ajouté avec succès !');
     }
 
     /**
-     * Affiche les détails d'un livre spécifique.
-     *
      * @param  int  $id
      * @return \Illuminate\View\View
      */
