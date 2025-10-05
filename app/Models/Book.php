@@ -21,5 +21,6 @@ class Book extends Model
         'publication_year',
         'summary',
         'price',
+        'original_price',
     ];
 }

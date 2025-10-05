@@ -9,19 +9,24 @@ use App\Http\Controllers\MessageController;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Ici, vous pouvez enregistrer les routes web pour votre application. Ces
-| routes sont chargées par le RouteServiceProvider et toutes
-| seront assignées au groupe de middleware "web".
+
 |
 */
 
 // Section Accueil et livres
-Route::get('/', [BookController::class, 'index'])->name('home');
+//Route::get('/', [BookController::class, 'index'])->name('home');
+Route::get('/', [BookController::class, 'welcome'])->name('welcome');
+
 Route::get('/livre/{id}', [BookController::class, 'show'])->name('books.show');
+Route::get('/livres', [BookController::class, 'index'])->name('books.index');
 
 // Section Ajout de livre
 Route::get('/livre/ajouter', [BookController::class, 'create'])->name('books.create');
 Route::post('/livre/ajouter', [BookController::class, 'store'])->name('books.store');
+
+//modifier un livre
+Route::get('/livre/{id}/modifier', [BookController::class, 'edit'])->name('books.edit');
+Route::put('/livre/{id}', [BookController::class, 'update'])->name('books.update');
 
 // Section de suppression
 Route::delete('/livre/{id}', [BookController::class, 'destroy'])->name('books.destroy');
@@ -40,3 +45,4 @@ Route::get('/messages', [MessageController::class, 'index'])->name('messages');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

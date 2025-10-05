@@ -20,6 +20,15 @@ class BookController extends Controller
         return view('books.index', ['books' => $books]);
     }
 
+
+    public function welcome()
+    {
+        $books = Book::all();
+        $promotions = Book::where('price', '<', 'original_price')->get();
+
+        return view('welcome', compact('books', 'promotions'));
+    }
+
     /**
      * Affiche le formulaire pour créer un nouveau livre.
      *

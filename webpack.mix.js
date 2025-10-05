@@ -1,4 +1,4 @@
-// Importe Laravel Mix pour la gestion des assets
+
 const mix = require('laravel-mix');
 
 /*
@@ -8,6 +8,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .vue()
    .sass('resources/sass/app.scss', 'public/css')
    .sourceMaps()
    .version()

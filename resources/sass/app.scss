@@ -1,8 +1,71 @@
-// Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+// Import de Bootstrap
+@import "~bootstrap/scss/bootstrap";
 
-// Variables
-@import 'variables';
+// Couleurs personnalisées
+$primary: #0d6efd;
+$light-bg: #f8f9fa;
+$card-radius: 12px;
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+// Corps de page
+body {
+    background-color: $light-bg;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+// Cartes
+.card {
+    border-radius: $card-radius;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+}
+
+// Titres
+h3, h2 {
+    font-weight: 600;
+    color: #212529;
+}
+
+// Boutons
+.btn-outline-primary {
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    &:hover {
+        background-color: $primary;
+        color: #fff;
+    }
+}
+
+.btn-primary {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+// Formulaires
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.form-control {
+    border-radius: 6px;
+}
+
+
+.bi {
+    vertical-align: middle;
+}
+
+
+h1, h4 {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #0d6efd;
+}
+
+.card-text {
+    color: #555;
+}
