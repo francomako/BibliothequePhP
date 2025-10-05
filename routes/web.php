@@ -36,3 +36,7 @@ Route::post('/contacter', [MessageController::class, 'store'])->name('contact.st
 
 // Section des messages
 Route::get('/messages', [MessageController::class, 'index'])->name('messages');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
